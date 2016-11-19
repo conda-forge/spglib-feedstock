@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.8.11" %}
-{% set sha256 = "94f8860e77fcdfe882adc38dde8c67e4789c82aa3d04ecfac0aa7a5e912d70a5" %}
+{% set version = "1.9.8.15" %}
+{% set sha256 = "53be50ebc417a6e8083ec5308c5b57d934db199d7ccfd5eb0993a929e953940e" %}
 
 package:
   name: {{ name|lower }}
@@ -23,6 +23,7 @@ requirements:
     - python
     - numpy x.x
     - setuptools
+    - toolchain
   run:
     - python
     - numpy x.x
