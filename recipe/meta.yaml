@@ -23,6 +23,7 @@ requirements:
     - python
     - numpy x.x
     - setuptools
+    - toolchain
   run:
     - python
     - numpy x.x
