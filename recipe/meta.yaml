@@ -23,12 +23,12 @@ build:
 requirements:
   build:
     - python
-    - numpy x.x
+    - numpy 
     - setuptools
     - toolchain
   run:
     - python
-    - numpy x.x
+    - numpy
 
 test:
   imports:
