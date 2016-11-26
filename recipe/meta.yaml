@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.8.15" %}
-{% set sha256 = "53be50ebc417a6e8083ec5308c5b57d934db199d7ccfd5eb0993a929e953940e" %}
+{% set version = "1.9.8.20" %}
+{% set sha256 = "f33e3eff42b73d730952eba266cd01282672e0dd93b985f89eedd3af91632e4e" %}
 
 package:
   name: {{ name|lower }}
@@ -10,9 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - old_C_style.patch
-
 
 build:
   #skip: true  # [win and (py27 or py34)]
@@ -23,12 +20,12 @@ build:
 requirements:
   build:
     - python
-    - numpy
+    - numpy x.x
     - setuptools
     - toolchain
   run:
     - python
-    - numpy
+    - numpy x.x
 
 test:
   imports:
