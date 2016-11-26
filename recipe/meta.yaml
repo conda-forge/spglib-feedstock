@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.8.15" %}
-{% set sha256 = "53be50ebc417a6e8083ec5308c5b57d934db199d7ccfd5eb0993a929e953940e" %}
+{% set version = "1.9.8.20" %}
+{% set sha256 = "f33e3eff42b73d730952eba266cd01282672e0dd93b985f89eedd3af91632e4e" %}
 
 package:
   name: {{ name|lower }}
@@ -11,9 +11,8 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
-
 build:
-  skip: true  # [win and (py27 or py34)]
+  #skip: true  # [win and (py27 or py34)]
   number: 0
   script: 
     - python setup.py install --single-version-externally-managed --record record.txt 
@@ -34,7 +33,7 @@ test:
   commands:
     - cd {{ environ.SRC_DIR }}
     - cd test 
-    - python test_spglib.py
+    - python -m unittest discover -b
 
 
 about:
