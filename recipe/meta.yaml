@@ -12,8 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  #skip: true  # [win and (py27 or py34)]
-  number: 0
+  number: 1
   script: 
     - python setup.py install --single-version-externally-managed --record record.txt 
 
@@ -31,8 +30,7 @@ test:
   imports:
     - spglib
   commands:
-    - cd {{ environ.SRC_DIR }}
-    - cd test 
+    - cd {{ environ.SRC_DIR }}/test
     - python -m unittest discover -b
 
 
