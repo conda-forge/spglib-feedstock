@@ -10,8 +10,11 @@ env:
   matrix:
     
     - CONDA_NPY=111  CONDA_PY=27
+    - CONDA_NPY=112  CONDA_PY=27
     - CONDA_NPY=111  CONDA_PY=35
+    - CONDA_NPY=112  CONDA_PY=35
     - CONDA_NPY=111  CONDA_PY=36
+    - CONDA_NPY=112  CONDA_PY=36
   global:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
     - secure: "eQd/1Tm03Nh3mhhlwb2OoezKvFX8T3dNL3pWFch3rZ4pt0GYvlwRgvKeOQPY1IorQf8I0ikMYSDMUuov0QRwLVgJc6FnJp/fk2gm7AWDOW5uS3DvVMxMDohi2R3rR4uSphDbEzn/Izgw/eD3J9FR/+s+ee+cEh7mUOHPXcy8uj3bIgB3jevX1R6cJqhR+D3u5JZl9ykvzbav/+srdwOkQ8E9BndiHFlvD/4ys7ME3lrPG6MLpNKl8TJwTjC15L0LZqrf8mLT2J6+6kJ+hQuZYWBpNzkxejbq31iRxq85oeSjKcXEza1T88M9U2nXSESHIDE2d+WgYkYu6oGmXNLhBctoEkE0FGWa/MKbT5xRlPXvIccPQFkDmeQ1mibcsgZ2sjVWwKMianCBlZnkVLwlSk5nT/Ig2kIoU44hUI7dkaoT9hj09sIyfdaYi7hPMEbSZ1c/Cp6lOadtDL8dptwwvHcpAU+39cZp9xfVWVA75n3i0r3t5v4J+hT90vO8wzWbl/yNIHJ/QGYihfIdPxTPFyNU/QAQjcdtd0729Jga5boz3UQRrfqrg+Wl30xCoKYpILRxKuz+qv3snrBN3vOzhS3gmB+Q3eIiJUhT9GyZ+4PLK1oyWcDQz1ypEQ8kIn2tzknkzETE7cyjmnUusZui8z6tVfq5BJkQ7W+eByzziU0="
@@ -19,17 +22,29 @@ env:
 
 before_install:
     # Remove homebrew.
-    - brew remove --force --ignore-dependencies $(brew list)
-    - brew cleanup -s
-    - rm -rf $(brew --cache)
+    - |
+      echo ""
+      echo "Removing homebrew from Travis CI to avoid conflicts."
+      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
+      chmod +x ~/uninstall_homebrew
+      ~/uninstall_homebrew -fq
+      rm ~/uninstall_homebrew
+
 
 install:
+    # Install Miniconda.
     - |
+      echo ""
+      echo "Installing a fresh version of Miniconda."
       MINICONDA_URL="https://repo.continuum.io/miniconda"
       MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
       curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
       bash $MINICONDA_FILE -b
 
+    # Configure conda.
+    - |
+      echo ""
+      echo "Configuring conda."
       source /Users/travis/miniconda3/bin/activate root
       conda config --remove channels defaults
       conda config --add channels defaults
