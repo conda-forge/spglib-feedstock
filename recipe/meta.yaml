@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.9.18" %}
-{% set sha256 = "cbbb8383320b500dc6100b83d5e914a26a97ef8fc97c82d8921b10220e4126cd" %}
+{% set version = "1.9.9.38" %}
+{% set sha256 = "92e531cd2f0ac8146859e524953ac7aa8692f138e18102c598537aaf65fd0d44" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 3
+  number: 0
   script: 
     - python setup.py install --single-version-externally-managed --record record.txt 
 
