@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.9.38" %}
-{% set sha256 = "92e531cd2f0ac8146859e524953ac7aa8692f138e18102c598537aaf65fd0d44" %}
+{% set version = "1.9.9.44" %}
+{% set sha256 = "13cdd4d711c1c9672488a9b17305abb715ed3b2e4851de514b8666dae9864b39" %}
 
 package:
   name: {{ name|lower }}
