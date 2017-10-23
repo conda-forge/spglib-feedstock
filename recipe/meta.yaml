@@ -40,7 +40,7 @@ about:
   home: https://atztogo.github.io/spglib/
   license: BSD-3-clause
   license_family: BSD
-  license_file: {{ environ['RECIPE_DIR'] }}/COPYING
+  license_file: {{ environ.get('RECIPE_DIR','.') }}/COPYING
   summary: 'Space symmetry groups spglib module.'
 
 
