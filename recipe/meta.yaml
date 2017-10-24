@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.10.1" %}
-{% set sha256 = "ea6a9a8b20fa6fdeff228867571e4ddb3ddd6dc7b580e64ebc78aa1986f0af3b" %}
+{% set version = "1.10.0.2" %}
+{% set sha256 = "225f3d36005c9a5c260c9fda20eaad887fbe58416d5f61fb1565ba6a935d4e98" %}
 
 package:
   name: {{ name|lower }}
@@ -40,7 +40,7 @@ about:
   home: https://atztogo.github.io/spglib/
   license: BSD-3-clause
   license_family: BSD
-  license_file: {{ environ.RECIPE_DIR }}/COPYING
+  license_file: {{ RECIPE_DIR }}/COPYING
   summary: 'Space symmetry groups spglib module.'
 
 
