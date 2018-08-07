@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.10.3.54" %}
-{% set sha256 = "8c52d0862ec44cfebe49006548f863c4978025fbc04a281373d3180fcf6cac37" %}
+{% set version = "1.10.4.1" %}
+{% set sha256 = "1a50c48dfea450c431a6d6790aa2ebbb10dc43eef97f2794f5038ed1eeecbd30" %}
 
 package:
   name: {{ name|lower }}
@@ -13,18 +13,19 @@ source:
 
 build:
   number: 0
-  script: 
-    - python setup.py install --single-version-externally-managed --record record.txt 
+  script:
+    - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
-    - numpy 1.11.*
+    - numpy
     - setuptools
-    - toolchain
   run:
     - python
-    - numpy >=1.11
+    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
