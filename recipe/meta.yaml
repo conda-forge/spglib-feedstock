@@ -18,8 +18,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - pip
+    - {{ compiler('c') }}
   host:
     - python
     - numpy
