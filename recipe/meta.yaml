@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.11.1.post3" %}
-{% set sha256 = "8acbf3360cacd63585df09c8b5db7ea2b664cec8451cac160275e69fd5a28ce5" %}
+{% set version = "1.11.1" %}
+{% set sha256 = "3b5a859f3fe2c9b096fc0754ffbd9341c568bc8003d2eeb74c958c1cacb480f5" %}
 
 package:
   name: {{ name|lower }}
@@ -8,19 +8,21 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/atztogo/spglib/archive/v{{ version }}.tar.gz
+  
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
-  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt
+  number: 1004
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - cmake
   host:
     - python
     - numpy
+    - pip
     - setuptools
   run:
     - python
@@ -30,10 +32,9 @@ test:
   imports:
     - spglib
   source_files:
-    - test
+    - python/test
   commands:
-    - cd test
-    - python -m unittest discover -b
+    - python -m unittest discover -b -s python/test
 
 
 about:
@@ -41,7 +42,7 @@ about:
   license: BSD-3-clause
   license_family: BSD
   license_file: {{ RECIPE_DIR }}/COPYING
-  summary: 'Space symmetry groups spglib module.'
+  summary: 'Space symmetry groups spglib module/library.'
 
 
   description: |
