@@ -7,7 +7,7 @@ Package license: BSD-3-clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: Space symmetry groups spglib module.
+Summary: Space symmetry groups spglib module/library.
 
 Spglib is a library for finding and handling crystal symmetries.
 
