@@ -21,7 +21,8 @@ requirements:
     - cmake
   host:
     - python
-    - {{ pin_compatible('numpy') }}
+    - openblas
+    - numpy
     - pip
     - setuptools
   run:
