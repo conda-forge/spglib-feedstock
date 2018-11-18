@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -21,7 +21,7 @@ requirements:
     - cmake
   host:
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - pip
     - setuptools
   run:
