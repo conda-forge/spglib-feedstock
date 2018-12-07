@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.11.1.2" %}
-{% set sha256 = "d99dab24accd269df65c01febd05cb5dd1094a89d7279f8390871f0432df2b56" %}
+{% set version = "1.11.2" %}
+{% set sha256 = "aae61218dd0cca1fda245d4ad906c2eed5e8d30e28b575d74eab9a6be26bbd5d" %}
 
 package:
   name: {{ name|lower }}
@@ -31,6 +31,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  requires:
+    - pyyaml
   imports:
     - spglib
   source_files:
