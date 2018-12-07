@@ -31,6 +31,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  requires:
+    - pyyaml
   imports:
     - spglib
   source_files:
