@@ -21,13 +21,13 @@ requirements:
     - cmake
   host:
     - python
-    - blas * {{ openblas }}  # [unix]
+    #- blas * {{ openblas }}  # [unix]
     - numpy
     - pip
     - setuptools
   run:
     - python
-    - blas * {{ openblas }}  # [unix]
+    #- blas * {{ openblas }}  # [unix]
     - {{ pin_compatible('numpy') }}
 
 test:
