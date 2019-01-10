@@ -9,11 +9,11 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/atztogo/spglib/archive/v{{ version }}.tar.gz
-  
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
+  run_exports: spglib  # [not win]
 
 requirements:
   build:
@@ -21,13 +21,11 @@ requirements:
     - cmake
   host:
     - python
-    - blas 1.1 openblas  # [unix]
     - numpy
     - pip
     - setuptools
   run:
     - python
-    - blas 1.1 openblas  # [unix]
     - {{ pin_compatible('numpy') }}
 
 test:
