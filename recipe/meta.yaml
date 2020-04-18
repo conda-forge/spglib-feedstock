@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.14.1" %}
-{% set sha256 = "9803b0648d9c2d99377f3e1c4cecf712320488403cd674192ec5cbe956bb3c78" %}
+{% set version = "1.15.0" %}
+{% set sha256 = "2e217beff6840a22ab2149598eb2f40616b2eeb9e155edab52761d3301412f98" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   run_exports: spglib  # [not win]
 
 requirements:
@@ -44,7 +44,7 @@ about:
   license: BSD-3-clause
   license_family: BSD
   license_file: {{ RECIPE_DIR }}/COPYING
-  summary: 'Space symmetry groups spglib module/library.'
+  summary: Space symmetry groups spglib module/library.
 
 
   description: |
