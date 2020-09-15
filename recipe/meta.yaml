@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   run_exports: spglib  # [not win]
 
 requirements:
@@ -41,7 +41,7 @@ test:
 
 about:
   home: https://atztogo.github.io/spglib/
-  license: BSD-3-clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: {{ RECIPE_DIR }}/COPYING
   summary: Space symmetry groups spglib module/library.
