@@ -3,7 +3,7 @@ About spglib
 
 Home: https://atztogo.github.io/spglib/
 
-Package license: BSD-3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD-3-Clause
 
