@@ -22,6 +22,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - cmake
+    - make
   host:
     - python
     - numpy
