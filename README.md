@@ -3,7 +3,7 @@ About spglib-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/spglib-feedstock/blob/rc/LICENSE.txt)
 
-Home: https://spglib.github.io/spglib/
+Home: https://spglib.readthedocs.io
 
 Package license: BSD-3-Clause
 
@@ -11,7 +11,7 @@ Summary: Space symmetry groups spglib module/library.
 
 Development: https://github.com/spglib/spglib
 
-Documentation: https://spglib.github.io/spglib/
+Documentation: https://spglib.readthedocs.io
 
 Spglib is a library for finding and handling crystal symmetries.
 
