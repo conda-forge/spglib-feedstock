@@ -7,7 +7,7 @@ cdt_name:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda_forge spglib_rc
+- conda-forge spglib_rc
 docker_image:
 - quay.io/condaforge/linux-anvil-ppc64le
 numpy:

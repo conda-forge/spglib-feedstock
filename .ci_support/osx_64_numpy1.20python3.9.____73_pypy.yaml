@@ -7,7 +7,7 @@ c_compiler_version:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda_forge spglib_rc
+- conda-forge spglib_rc
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
