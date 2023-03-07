@@ -6,8 +6,11 @@ conda_build:
   pkg_format: '2'
 conda_forge_output_validation: true
 github:
-  branch_name: main
+  branch_name: rc
   tooling_branch_name: main
+channels:
+  targets:
+    - [ "conda-forge","spglib_rc" ]
 provider:
   linux_aarch64: default
   linux_ppc64le: default
