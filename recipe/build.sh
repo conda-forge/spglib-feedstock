@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export CMAKE_GENERATOR="Ninja"
 mkdir build
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
@@ -19,7 +20,7 @@ cmake "${SRC_DIR}" -B ./build \
   -DSPGLIB_WITH_TESTS=${DO_CTESTS}
 cmake --build ./build
 # TODO: This should be moved to run_test.sh. Cannot get the appropriate work directory to run these tests
-ctest --test-dir ./build
+ctest --test-dir ./build --no-tests=ignore
 cmake --install ./build
 
 $PYTHON -m pip install .
