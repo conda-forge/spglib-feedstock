@@ -43,12 +43,11 @@ test:
   requires:
     - pyyaml
     - pytest
-    - pytest-benchmark  # Not really used, but we are passing --benchmark-skip by default
   imports:
     - spglib
   source_files:
     - pyproject.toml
-    - python/test
+    - test/functional/python
   commands:
     - pytest
 
