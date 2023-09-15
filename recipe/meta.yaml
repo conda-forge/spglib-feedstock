@@ -4,7 +4,7 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: {{ version|replace("-","") }}
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
@@ -21,13 +21,20 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - gtest
+    # TODO: Remove gmock. We are only using gtest, but conda package requires gmock for gtest
+    - gmock
     - cmake
-    - make
+    - ninja
+    - scikit-build-core
   host:
     - python
     - numpy
     - pip
     - setuptools
+    - scikit-build-core
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -36,16 +43,18 @@ test:
   requires:
     - pyyaml
     - pytest
+    - pytest-benchmark  # Not really used, but we are passing --benchmark-skip by default
   imports:
     - spglib
   source_files:
+    - pyproject.toml
     - python/test
   commands:
     - pytest
 
 
 about:
-  home: https://spglib.github.io/spglib/
+  home: https://spglib.readthedocs.io
   license: BSD-3-Clause
   license_family: BSD
   license_file: {{ RECIPE_DIR }}/COPYING
@@ -54,7 +63,7 @@ about:
 
   description: |
     Spglib is a library for finding and handling crystal symmetries.
-  doc_url: https://spglib.github.io/spglib/
+  doc_url: https://spglib.readthedocs.io
   dev_url: https://github.com/spglib/spglib
 
 extra:
