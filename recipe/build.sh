@@ -1,12 +1,26 @@
 #!/bin/bash
 
-cmake ${CMAKE_ARGS} -DCMAKE_C_COMPILER=$CC -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=${PREFIX}/lib ${SRC_DIR}
-make install
+export CMAKE_GENERATOR="Ninja"
+mkdir build
 
-(cd python
-    cp -r ../src .
-    $PYTHON -m pip install .
-)
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
+  DO_CTESTS="OFF"
+else
+  DO_CTESTS="ON"
+fi
 
+cmake "${SRC_DIR}" -B ./build \
+  ${CMAKE_ARGS} \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+  -DCMAKE_INSTALL_LIBDIR=lib \
+  -DSPGLIB_SHARED_LIBS=ON \
+  -DCMAKE_FIND_FRAMEWORK=NEVER \
+  -DCMAKE_FIND_APPBUNDLE=NEVER \
+  -DSPGLIB_WITH_TESTS=${DO_CTESTS}
+cmake --build ./build
+# TODO: This should be moved to run_test.sh. Cannot get the appropriate work directory to run these tests
+ctest --test-dir ./build --no-tests=ignore
+cmake --install ./build
 
-
+$PYTHON -m pip install .
