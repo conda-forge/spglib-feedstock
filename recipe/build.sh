@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export CMAKE_GENERATOR="Ninja"
-mkdir build
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   DO_CTESTS="OFF"
@@ -12,8 +11,6 @@ fi
 cmake "${SRC_DIR}" -B ./build \
   ${CMAKE_ARGS} \
   -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
-  -DCMAKE_INSTALL_LIBDIR=lib \
   -DSPGLIB_SHARED_LIBS=ON \
   -DSPGLIB_WITH_Fortran=ON \
   -DCMAKE_FIND_FRAMEWORK=NEVER \
