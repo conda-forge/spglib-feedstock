@@ -19,6 +19,8 @@ build:
 
 requirements:
   build:
+    # cross-python needed to run $PYTHON -m pip on build
+    # Otherwise it gets Bad CPU type in executable
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
@@ -26,17 +28,15 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - gtest
-    # TODO: Remove gmock. We are only using gtest, but conda package requires gmock for gtest
-    - gmock
     - cmake
     - ninja
-    - scikit-build-core
   host:
     - python
     - numpy
+    # These are technically `build` requirements, but conda build fails if put there
     - pip
-    - setuptools
     - scikit-build-core
+    - setuptools-scm
   run:
     - python
     - {{ pin_compatible('numpy') }}
