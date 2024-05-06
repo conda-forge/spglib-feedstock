@@ -61,7 +61,7 @@ about:
   home: https://spglib.readthedocs.io
   license: BSD-3-Clause
   license_family: BSD
-  license_file: {{ RECIPE_DIR }}/COPYING
+  license_file: COPYING
   summary: Space symmetry groups spglib module/library.
 
 
