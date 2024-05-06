@@ -40,8 +40,8 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - typing-extensions    # [py<39]
-    - importlib-resources  # [py<311]
+    - typing-extensions
+    - importlib-resources
 
 test:
   requires:
