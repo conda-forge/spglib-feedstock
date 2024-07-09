@@ -15,7 +15,7 @@ build:
   number: 0
   run_exports: spglib  # [not win]
   # Build is currently failing for pypy and aarch64 or ppc64le due to a rpath issue:
-  skip: true  # [(python_impl == 'pypy') and (aarch64 or ppc64le)]
+  skip: true  # [((python_impl == 'pypy') and (aarch64 or ppc64le)) or py<39]
 
 requirements:
   build:
