@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
 {% set version = "2.5.0" %}
-{% set sha256 = "80c060b1a606a76b15f2cc708e9fdd4a83479924ebff9ac16ed26a87a0eac1a9" %}
+{% set sha256 = "b6026f5e85106c0c9ee57e54b9399890d0f29982e20e96ede0428b3efbe6b914" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   run_exports: spglib  # [not win]
   # Build is currently failing for pypy and aarch64 or ppc64le due to a rpath issue:
   skip: true  # [((python_impl == 'pypy') and (aarch64 or ppc64le)) or py<39]
