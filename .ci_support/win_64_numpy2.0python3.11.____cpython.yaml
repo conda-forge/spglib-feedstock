@@ -11,7 +11,9 @@ cxx_compiler:
 fortran_compiler:
 - flang
 fortran_compiler_version:
-- '5'
+- '19'
+glib:
+- '2'
 numpy:
 - '2.0'
 pin_run_as_build:
@@ -28,4 +30,3 @@ zip_keys:
 - - python
   - numpy
   - python_impl
-  - channel_sources
