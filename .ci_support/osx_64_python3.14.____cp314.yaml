@@ -22,8 +22,6 @@ fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '14'
-glib:
-- '2'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
